@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vintage Aviation News - Preserving Aviation Heritage</title>
+  <meta name="description" content="Vintage Aviation News covers restorations, warbirds, vintage aircraft, aviation museums, and aviation history.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth-styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-top">
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="site-logo">
+        <a href="index.html">
+          <div class="logo-text">
+            <span class="vintage">Vintage</span>
+            <span class="aviation">Aviation</span>
+            <span class="news">News</span>
+          </div>
+        </a>
+      </div>
+      <div class="header-search">
+        <input type="text" placeholder="Search Headlines, News...">
+        <button aria-label="Search"><i class="fas fa-arrow-circle-right"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/restorations.html">Restorations</a></li>
+        <li>
+          <a href="pages/warbirds-news.html">Warbirds News <span class="arrow">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="#">Advertorial - Sponsored Article</a>
+            <a href="#">Press Releases</a>
+          </div>
+        </li>
+        <li><a href="pages/vintage.html">Vintage</a></li>
+        <li><a href="pages/articles.html">Articles</a></li>
+        <li><a href="pages/museum-news.html">Aviation Museum News</a></li>
+        <li>
+          <a href="#">Sponsors <span class="arrow">&#9662;</span></a>
+          <div class="dropdown">
+            <a href="#">AirCorps Aviation</a>
+            <a href="#">Platinum Fighter Sales</a>
+            <a href="#">GossHawk Unlimited</a>
+            <a href="#">United Fuel Cells Corporation</a>
+            <a href="#">BARNSTORMER USA</a>
+            <a href="#">Django Studios</a>
+            <a href="#">WARBIRD ADVENTURES</a>
+          </div>
+        </li>
+        <li><a href="pages/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- NEWS TICKER -->
+  <div class="news-ticker">
+    <div class="container ticker-inner">
+      <div class="ticker-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Latest News
+      </div>
+      <div class="ticker-content">
+        <a href="#">The Persistent Dream of Victory from the Air: From Giulio Douhet to the Modern Era</a>
+      </div>
+      <span class="ticker-arrow">&rarr;</span>
+      <div class="ticker-links">
+        <a href="#">Youtube</a>
+        <span>-</span>
+        <a href="#">Newsletter</a>
+        <span>-</span>
+        <a href="#">Events</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <a href="#" class="hero-main">
+          <div class="placeholder-img img-1">The Persistent Dream of Victory from the Air</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-aviation-history">Aviation History</span>
+            </div>
+            <h2>The Persistent Dream of Victory from the Air: From Giulio Douhet to the Modern Era</h2>
+            <p class="excerpt">The theory of victory through airpower dates back to Giulio Douhet in 1921. From WWII bombing campaigns to today's Iran...</p>
+            <div class="meta">
+              <span>Kevin Wilkins</span>
+              <span class="dot"></span>
+              <span>March 27, 2026</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="hero-side">
+          <div class="placeholder-img img-2">Temco TT Pinto - Navy Aircraft</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+            <h3>Today In Aviation History: First Flight of the Temco TT Pinto</h3>
+            <div class="meta">
+              <span>Austin Hancock</span>
+              <span class="dot"></span>
+              <span>March 26, 2026</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO LOWER CARDS -->
+  <section class="hero-section" style="padding-top: 0;">
+    <div class="container">
+      <div class="hero-grid">
+        <a href="#" class="hero-side" style="min-height: 250px;">
+          <div class="placeholder-img img-6">Fritz Rumey - WWI Ace</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-aces">Aces</span>
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-aviation-history">Aviation History</span>
+            </div>
+            <h3>Aces of the Great War: Fritz Rumey &ndash; The Golden Age Fighter Ace</h3>
+          </div>
+        </a>
+        <a href="#" class="hero-side" style="min-height: 250px;">
+          <div class="placeholder-img img-7">Langley Twin - Grounded Dreams</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-grounded">Grounded Dreams</span>
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-aviation-history">Aviation History</span>
+            </div>
+            <h3>Grounded Dreams: The Langley Twin and the Vision of a Metal Free&hellip;</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ROW -->
+  <section class="featured-row">
+    <div class="container">
+      <div class="featured-grid">
+        <a href="#" class="featured-card">
+          <div class="placeholder-img img-3">VC-121A MacArthur Bataan</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-airshow">Airshow News</span>
+              <span class="category-badge badge-warbirds">Warbirds News</span>
+            </div>
+            <h4>Lockheed VC-121A "MacArthur Bataan" to Join SUN 'n FUN</h4>
+          </div>
+        </a>
+        <a href="#" class="featured-card">
+          <div class="placeholder-img img-4">Berlin-Gatow Museum</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+            <h4>Milit&auml;rhistorisches Museum Flugplatz Berlin-Gatow: Germany's Aviation Museum on a Historic Cold War Airfield</h4>
+          </div>
+        </a>
+        <a href="#" class="featured-card">
+          <div class="placeholder-img img-5">T-34C Mentor</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-flight-test">Flight Test Files</span>
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-aviation-history">Aviation History</span>
+            </div>
+            <h4>Flight Test Files: The T-34C Mentor &ndash; The Rugged Bridge to the Jet Age</h4>
+          </div>
+        </a>
+        <a href="#" class="featured-card">
+          <div class="placeholder-img img-8">Ryan ST-A Special</div>
+          <div class="overlay">
+            <div class="categories">
+              <span class="category-badge badge-vintage">Vintage Aviation</span>
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-profiles">Randy's Vintage Profiles</span>
+            </div>
+            <h4>Randy's Vintage Profiles: Ryan ST-A Special</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD ROW -->
+  <div class="container">
+    <div class="ad-row">
+      <div class="ad-banner"><div class="ad-banner-placeholder">GOSSHAWK UNLIMITED - Advertisement</div></div>
+      <div class="ad-banner"><div class="ad-banner-placeholder">FUEL THE FUTURE - Support America's Youth Restoring a WWII Bomber</div></div>
+    </div>
+  </div>
+
+  <!-- RESTORATIONS SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Restorations</h2>
+        <div class="line"></div>
+      </div>
+      <div class="card-grid-5">
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-3">S-3B Viking</div>
+            <div class="categories">
+              <span class="category-badge badge-restorations">Restorations</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>National POW/MIA Memorial and Museum Announces S-3B Viking Aircraft for Static Display</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-4">Vintage Flying Museum</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+              <span class="category-badge badge-restorations">Restorations</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>A Saturday 'Workday' Visit to the Vintage Flying Museum</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-5">Piper L-4H</div>
+            <div class="categories">
+              <span class="category-badge badge-restorations">Restorations</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>AirCorps Aviation's Piper L-4H Restoration Report &ndash; Winter 2026 Update</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-9">CF-104 Starfighter</div>
+            <div class="categories">
+              <span class="category-badge badge-restorations">Restorations</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>The KF Centre for Excellence's CF-104 Starfighter</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-10">B-17 Flying Fortress</div>
+            <div class="categories">
+              <span class="category-badge badge-restorations">Restorations</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Boeing B-17 Flying Fortress Restoration Work Continues at The Warbird Shop in Oregon</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIATION MUSEUM NEWS SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Aviation Museum News</h2>
+        <div class="line"></div>
+      </div>
+      <div class="card-grid-5">
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-4">Berlin-Gatow Museum</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Milit&auml;rhistorisches Museum Flugplatz Berlin-Gatow: Germany's Aviation Museum on a Historic Cold War Airfield</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-5">Mighty Eighth Air Force</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>The National Museum of the Mighty Eighth Air Force Campaign Reaches $18.3 Million, Moves to Final Phase</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-9">Warbird Fly-In</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Canadian Warplane Heritage Museum to Host Warbird Fly-In Celebrating Chipmunk Anniversary</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-1">Air Zoo Spring Break</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Air Zoo to Host Spring Break Family Programs from March 24 to April 9</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-2">RAAF P-3 Orion</div>
+            <div class="categories">
+              <span class="category-badge badge-museum">Aviation Museum News</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Former RAAF P-3 Orion Finally Reaches Evans Head Museum After Flood Survival</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY IN AVIATION HISTORY SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Today in Aviation History</h2>
+        <div class="line"></div>
+      </div>
+      <div class="card-grid-5">
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-2">Temco TT Pinto</div>
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Today In Aviation History: First Flight of the Temco TT Pinto</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-3">Ilyushin IL-76</div>
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Today In Aviation History: First Flight of the Ilyushin IL-76</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-6">Captain Trollope</div>
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Today In Aviation History: Captain J. L. Trollope Downs Six German Aircraft in One Day</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-7">Gemini III</div>
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Today In Aviation History: Launch of Gemini III</h4>
+          </div>
+        </a>
+        <a href="#" class="card">
+          <div class="card-img">
+            <div class="placeholder-img img-8">PIK-23 Towmaster</div>
+            <div class="categories">
+              <span class="category-badge badge-articles">Articles</span>
+              <span class="category-badge badge-today-history">Today in Aviation History</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>Today In Aviation History: First Flight of the Valmet PIK-23 Towmaster</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD ROW 2 -->
+  <div class="container">
+    <div class="ad-row">
+      <div class="ad-banner"><div class="ad-banner-placeholder">WRECKCHASING 102 - The Chase Is On! NEW - Available Now</div></div>
+      <div class="ad-banner"><div class="ad-banner-placeholder">AVIATION-BASED GRAPHIC DESIGN - Django Studios</div></div>
+    </div>
+  </div>
+
+  <!-- LATEST NEWS WITH SIDEBAR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest News</h2>
+        <div class="line"></div>
+      </div>
+      <div class="content-with-sidebar">
+        <div class="article-list">
+          <!-- Article 1 -->
+          <div class="article-item">
+            <div class="article-thumb">
+              <div class="placeholder-img img-3">VC-121A MacArthur Bataan</div>
+            </div>
+            <div class="article-content">
+              <div class="categories">
+                <span class="category-badge badge-airshow">Airshow News</span>
+                <span class="category-badge badge-warbirds">Warbirds News</span>
+              </div>
+              <h3><a href="#">Lockheed VC-121A "MacArthur Bataan" to Join SUN 'n FUN</a></h3>
+              <p class="excerpt">The Lockheed VC-121A "MacArthur Bataan," one of only two airworthy Constellations of its kind, will...</p>
+              <div class="meta">
+                <span>Moreno Aguiari</span>
+                <span class="dot"></span>
+                <span>March 26, 2026</span>
+              </div>
+            </div>
+          </div>
+          <!-- Article 2 -->
+          <div class="article-item">
+            <div class="article-thumb">
+              <div class="placeholder-img img-8">Ryan ST-A Special</div>
+            </div>
+            <div class="article-content">
+              <div class="categories">
+                <span class="category-badge badge-vintage">Vintage Aviation</span>
+                <span class="category-badge badge-articles">Articles</span>
+                <span class="category-badge badge-profiles">Randy's Vintage Profiles</span>
+              </div>
+              <h3><a href="#">Randy's Vintage Profiles: Ryan ST-A Special</a></h3>
+              <p class="excerpt">In this article, Randy shares his photos and insights on the Ryan ST-A Special, highlighting...</p>
+              <div class="meta">
+                <span>Adam Estes</span>
+                <span class="dot"></span>
+                <span>March 25, 2026</span>
+              </div>
+            </div>
+          </div>
+          <!-- Article 3 -->
+          <div class="article-item">
+            <div class="article-thumb">
+              <div class="placeholder-img img-5">B-29 DOC</div>
+            </div>
+            <div class="article-content">
+              <div class="categories">
+                <span class="category-badge badge-warbirds">Warbirds News</span>
+              </div>
+              <h3><a href="#">B-29 "DOC" to Return to Spirit of St. Louis Air Show & STEM Expo in June 2026</a></h3>
+              <p class="excerpt">B-29 "DOC" will return to the Spirit of St. Louis Air Show & STEM Expo...</p>
+              <div class="meta">
+                <span>Amreetam Basu</span>
+                <span class="dot"></span>
+                <span>March 25, 2026</span>
+              </div>
+            </div>
+          </div>
+          <!-- Article 4 -->
+          <div class="article-item">
+            <div class="article-thumb">
+              <div class="placeholder-img img-10">F-100F Super Sabre</div>
+            </div>
+            <div class="article-content">
+              <div class="categories">
+                <span class="category-badge badge-warbirds">Warbirds News</span>
+              </div>
+              <h3><a href="#">Collings Foundation's F-100F Super Sabre Returns to Flight at Ellington Field</a></h3>
+              <p class="excerpt">One of only two airworthy North American F-100F Super Sabres in the world has returned...</p>
+              <div class="meta">
+                <span>Moreno Aguiari</span>
+                <span class="dot"></span>
+                <span>March 17, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <!-- Stay Connected -->
+          <div class="sidebar-widget">
+            <h3>Stay Connected</h3>
+            <div class="social-grid">
+              <a href="#" class="social-box">
+                <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                <span class="label">Facebook</span>
+                <span class="action">Like</span>
+              </a>
+              <a href="#" class="social-box">
+                <div class="icon"><i class="fab fa-x-twitter"></i></div>
+                <span class="label">Twitter</span>
+                <span class="action">Follow</span>
+              </a>
+              <a href="#" class="social-box">
+                <div class="icon"><i class="fab fa-instagram"></i></div>
+                <span class="label">Instagram</span>
+                <span class="action">Follow</span>
+              </a>
+              <a href="#" class="social-box">
+                <div class="icon"><i class="fab fa-youtube"></i></div>
+                <span class="label">Youtube</span>
+                <span class="action">Subscribe</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <div class="categories-grid">
+              <a href="pages/restorations.html" class="category-card">
+                <div class="placeholder-img img-3"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Restorations</span>
+                  <span class="cat-count">1121 Articles</span>
+                </div>
+              </a>
+              <a href="pages/warbirds-news.html" class="category-card">
+                <div class="placeholder-img img-5"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Warbirds News</span>
+                  <span class="cat-count">2019 Articles</span>
+                </div>
+              </a>
+              <a href="pages/vintage.html" class="category-card">
+                <div class="placeholder-img img-8"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Vintage Aviation</span>
+                  <span class="cat-count">166 Articles</span>
+                </div>
+              </a>
+              <a href="pages/museum-news.html" class="category-card">
+                <div class="placeholder-img img-4"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Aviation Museum News</span>
+                  <span class="cat-count">2092 Articles</span>
+                </div>
+              </a>
+              <a href="pages/articles.html" class="category-card">
+                <div class="placeholder-img img-6"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Articles</span>
+                  <span class="cat-count">1390 Articles</span>
+                </div>
+              </a>
+              <a href="#" class="category-card">
+                <div class="placeholder-img img-7"></div>
+                <div class="cat-overlay">
+                  <span class="cat-name">Today in Aviation History</span>
+                  <span class="cat-count">477 Articles</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="sidebar-widget">
+            <h3>Search</h3>
+            <div class="search-widget">
+              <input type="text" placeholder="Search Headlines, News...">
+              <button aria-label="Search"><i class="fas fa-arrow-circle-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Advertisement -->
+          <div class="sidebar-widget">
+            <h3>Advertisement</h3>
+            <div class="ad-banner" style="min-height: 250px;">
+              <div class="ad-banner-placeholder">Advertisement Space</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD ROW 3 (Thunderbirds / Barnstormer) -->
+  <div class="container">
+    <div class="ad-row">
+      <div class="ad-banner" style="max-width: 100%; min-height: 200px;">
+        <div class="ad-banner-placeholder">BARNSTORMER-USA.COM - Official Licensed Thunderbirds Product</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-text" style="width:70px;height:70px;">
+              <span class="vintage" style="font-size:7px;">Vintage</span>
+              <span class="aviation" style="font-size:16px;">Aviation</span>
+              <span class="news" style="font-size:8px;">News</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p><em>Vintage Aviation News is a company founded by a group of passionate aviation enthusiasts who love the history and technology Aviation and Flying Museums preserve for the public. It is our intention to play a role in safeguarding the heritage of these beautiful machines by providing increased awareness and education through the use of internet based digital media.</em></p>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/restorations.html">Restorations</a></li>
+            <li><a href="pages/vintage.html">Vintage Aviation</a></li>
+            <li><a href="pages/museum-news.html">Aviation Museum News</a></li>
+            <li><a href="pages/articles.html">Articles</a></li>
+            <li><a href="#">Today in Aviation History</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="#">Ethics-Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/go-ad-free.js" data-delay="1000" data-poll="3000"></script>
+</body>
+</html>

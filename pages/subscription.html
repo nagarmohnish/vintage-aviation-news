@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Subscription - Vintage Aviation News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/auth-styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-top">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="site-logo"><a href="../index.html"><div class="logo-text"><span class="vintage">Vintage</span><span class="aviation">Aviation</span><span class="news">News</span></div></a></div>
+      <div class="header-search"><input type="text" placeholder="Search Headlines, News..."><button><i class="fas fa-arrow-circle-right"></i></button></div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container">
+      <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="restorations.html">Restorations</a></li>
+        <li><a href="warbirds-news.html">Warbirds News <span class="arrow">&#9662;</span></a></li>
+        <li><a href="vintage.html">Vintage</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="museum-news.html">Aviation Museum News</a></li>
+        <li><a href="#">Sponsors <span class="arrow">&#9662;</span></a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SUBSCRIPTION MANAGEMENT -->
+  <section class="subscription-page">
+    <div class="container">
+      <div class="sub-header">
+        <div class="breadcrumb"><a href="../index.html">Home</a> &gt; My Subscription</div>
+        <h1>My Subscription</h1>
+        <p>Manage your plan, billing, and payment details.</p>
+      </div>
+
+      <!-- Current Plan Card -->
+      <div class="plan-card" id="planCard">
+        <div class="plan-card-header">
+          <h2>Current Plan: <span id="planName">Loading...</span></h2>
+          <span class="plan-badge" id="planBadge">Loading</span>
+        </div>
+        <div class="plan-details-grid">
+          <div class="plan-detail">
+            <div class="detail-label">Plan</div>
+            <div class="detail-value" id="detailPlan">--</div>
+          </div>
+          <div class="plan-detail">
+            <div class="detail-label">Price</div>
+            <div class="detail-value" id="detailPrice">--</div>
+          </div>
+          <div class="plan-detail">
+            <div class="detail-label">Billing Cycle</div>
+            <div class="detail-value" id="detailCycle">--</div>
+          </div>
+          <div class="plan-detail">
+            <div class="detail-label">Next Billing Date</div>
+            <div class="detail-value" id="detailNextBilling">--</div>
+          </div>
+          <div class="plan-detail">
+            <div class="detail-label">Member Since</div>
+            <div class="detail-value" id="detailMemberSince">--</div>
+          </div>
+          <div class="plan-detail">
+            <div class="detail-label">Payment Method</div>
+            <div class="detail-value" id="detailPayment">--</div>
+          </div>
+        </div>
+        <div class="plan-actions">
+          <a href="subscribe.html" class="plan-action-btn btn-change-plan">
+            <i class="fas fa-exchange-alt"></i> Change Plan
+          </a>
+          <button class="plan-action-btn btn-update-payment" onclick="alert('Payment update form would appear here. (Demo)')">
+            <i class="fas fa-credit-card"></i> Update Payment
+          </button>
+          <button class="plan-action-btn btn-cancel" id="cancelBtn" onclick="openModal('cancelModal')">
+            <i class="fas fa-times-circle"></i> Cancel Subscription
+          </button>
+        </div>
+      </div>
+
+      <!-- Billing History -->
+      <div class="billing-section">
+        <h2>Billing History</h2>
+        <table class="billing-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="billingHistory">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANCEL MODAL -->
+  <div class="modal-overlay confirm-modal" id="cancelModal">
+    <div class="modal">
+      <div class="modal-icon warning"><i class="fas fa-exclamation-triangle"></i></div>
+      <h3>Cancel Subscription?</h3>
+      <p>Are you sure you want to cancel your subscription? You'll lose access to premium features at the end of your current billing period.</p>
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-cancel" onclick="closeModal('cancelModal')">Keep My Plan</button>
+        <button class="modal-btn modal-btn-danger" onclick="handleCancel()">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand"><div class="footer-logo"><div class="logo-text" style="width:70px;height:70px;"><span class="vintage" style="font-size:7px;">Vintage</span><span class="aviation" style="font-size:16px;">Aviation</span><span class="news" style="font-size:8px;">News</span></div></div></div>
+        <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand"><p><em>Vintage Aviation News is a company founded by a group of passionate aviation enthusiasts who love the history and technology Aviation and Flying Museums preserve for the public.</em></p></div>
+        <div class="footer-links"><ul><li><a href="../index.html">Home</a></li><li><a href="restorations.html">Restorations</a></li><li><a href="vintage.html">Vintage Aviation</a></li><li><a href="museum-news.html">Aviation Museum News</a></li><li><a href="articles.html">Articles</a></li></ul></div>
+        <div class="footer-links"><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Newsletter</a></li><li><a href="#">About Us</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/go-ad-free.js" data-delay="1000" data-poll="3000"></script>
+  <script>
+    // Protect this page
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!requireAuth()) return;
+      renderSubscription();
+    });
+
+    function renderSubscription() {
+      const user = getUser();
+      if (!user) return;
+
+      const plan = user.plan || 'free';
+      const planCapitalized = plan.charAt(0).toUpperCase() + plan.slice(1);
+
+      // Plan name & badge
+      document.getElementById('planName').textContent = planCapitalized;
+      const badge = document.getElementById('planBadge');
+      if (plan === 'cancelled') {
+        badge.textContent = 'Cancelled';
+        badge.className = 'plan-badge badge-cancelled';
+      } else if (plan === 'free') {
+        badge.textContent = 'Free';
+        badge.className = 'plan-badge badge-free';
+      } else {
+        badge.textContent = 'Active';
+        badge.className = 'plan-badge badge-active';
+      }
+
+      // Details
+      document.getElementById('detailPlan').textContent = planCapitalized;
+      document.getElementById('detailPrice').textContent = user.price || '$0';
+      document.getElementById('detailCycle').textContent = user.billingCycle || 'N/A';
+      document.getElementById('detailNextBilling').textContent = user.nextBilling || 'N/A';
+      document.getElementById('detailPayment').textContent = user.paymentMethod || 'None';
+
+      // Member since
+      if (user.memberSince) {
+        const date = new Date(user.memberSince);
+        document.getElementById('detailMemberSince').textContent =
+          date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      // Hide cancel button for free/cancelled
+      const cancelBtn = document.getElementById('cancelBtn');
+      if (plan === 'free' || plan === 'cancelled') {
+        cancelBtn.style.display = 'none';
+      } else {
+        cancelBtn.style.display = '';
+      }
+
+      // Billing history
+      renderBillingHistory(user);
+    }
+
+    function renderBillingHistory(user) {
+      const tbody = document.getElementById('billingHistory');
+      const plan = user.plan || 'free';
+
+      if (plan === 'free') {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--text-light);padding:30px;">No billing history for free plans.</td></tr>`;
+        return;
+      }
+
+      const now = new Date();
+      const entries = [];
+
+      if (plan === 'cancelled') {
+        entries.push({
+          date: now.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+          desc: 'Subscription Cancelled',
+          amount: '--',
+          status: 'cancelled'
+        });
+      }
+
+      // Generate some demo billing entries
+      for (let i = 0; i < 3; i++) {
+        const d = new Date(now);
+        d.setMonth(d.getMonth() - i);
+        entries.push({
+          date: d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+          desc: `${user.plan.charAt(0).toUpperCase() + user.plan.slice(1)} Plan - Monthly`,
+          amount: user.price || '$9.99',
+          status: 'paid'
+        });
+      }
+
+      tbody.innerHTML = entries.map(e => `
+        <tr>
+          <td>${e.date}</td>
+          <td>${e.desc}</td>
+          <td>${e.amount}</td>
+          <td class="${e.status === 'paid' ? 'status-paid' : ''}">${e.status === 'paid' ? 'Paid' : e.status === 'cancelled' ? 'Cancelled' : 'Pending'}</td>
+        </tr>
+      `).join('');
+    }
+
+    function handleCancel() {
+      cancelSubscription();
+      closeModal('cancelModal');
+      renderSubscription();
+      initAuthUI(); // Refresh nav
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

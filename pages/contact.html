@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Vintage Aviation News</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/auth-styles.css">
+  <style>
+    .contact-form { max-width: 600px; }
+    .contact-form .form-group { margin-bottom: 20px; }
+    .contact-form label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px;
+      font-family: var(--font-main); font-size: 14px; outline: none; transition: border-color 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); }
+    .contact-form textarea { min-height: 150px; resize: vertical; }
+    .contact-form button {
+      background: var(--primary); color: #fff; border: none; padding: 12px 30px;
+      font-size: 15px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background 0.2s;
+    }
+    .contact-form button:hover { background: var(--primary-dark); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-top">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="site-logo"><a href="../index.html"><div class="logo-text"><span class="vintage">Vintage</span><span class="aviation">Aviation</span><span class="news">News</span></div></a></div>
+      <div class="header-search"><input type="text" placeholder="Search Headlines, News..."><button><i class="fas fa-arrow-circle-right"></i></button></div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container">
+      <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+      <ul class="nav-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="restorations.html">Restorations</a></li>
+        <li><a href="warbirds-news.html">Warbirds News <span class="arrow">&#9662;</span></a></li>
+        <li><a href="vintage.html">Vintage</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="museum-news.html">Aviation Museum News</a></li>
+        <li><a href="#">Sponsors <span class="arrow">&#9662;</span></a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Home</a> &gt; Contact Us</div>
+      <div class="page-header-text">
+        <h1>Contact Us</h1>
+        <p>Have a story tip, press release, or question? We'd love to hear from you. Use the form below or reach out through our social media channels.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-with-sidebar">
+        <div class="contact-form">
+          <form onsubmit="event.preventDefault(); alert('Thank you for your message! (Demo)');">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option>General Inquiry</option>
+                <option>Story Tip / Press Release</option>
+                <option>Advertising</option>
+                <option>Sponsorship</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Stay Connected</h3>
+            <div class="social-grid">
+              <a href="#" class="social-box"><div class="icon"><i class="fab fa-facebook-f"></i></div><span class="label">Facebook</span><span class="action">Like</span></a>
+              <a href="#" class="social-box"><div class="icon"><i class="fab fa-x-twitter"></i></div><span class="label">Twitter</span><span class="action">Follow</span></a>
+              <a href="#" class="social-box"><div class="icon"><i class="fab fa-instagram"></i></div><span class="label">Instagram</span><span class="action">Follow</span></a>
+              <a href="#" class="social-box"><div class="icon"><i class="fab fa-youtube"></i></div><span class="label">Youtube</span><span class="action">Subscribe</span></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand"><div class="footer-logo"><div class="logo-text" style="width:70px;height:70px;"><span class="vintage" style="font-size:7px;">Vintage</span><span class="aviation" style="font-size:16px;">Aviation</span><span class="news" style="font-size:8px;">News</span></div></div></div>
+        <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand"><p><em>Vintage Aviation News is a company founded by a group of passionate aviation enthusiasts who love the history and technology Aviation and Flying Museums preserve for the public. It is our intention to play a role in safeguarding the heritage of these beautiful machines by providing increased awareness and education through the use of internet based digital media.</em></p></div>
+        <div class="footer-links"><ul><li><a href="../index.html">Home</a></li><li><a href="restorations.html">Restorations</a></li><li><a href="vintage.html">Vintage Aviation</a></li><li><a href="museum-news.html">Aviation Museum News</a></li><li><a href="articles.html">Articles</a></li><li><a href="#">Today in Aviation History</a></li></ul></div>
+        <div class="footer-links"><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Newsletter</a></li><li><a href="#">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#">Ethics-Policy</a></li></ul></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/go-ad-free.js" data-delay="1000" data-poll="3000"></script>
+</body>
+</html>
