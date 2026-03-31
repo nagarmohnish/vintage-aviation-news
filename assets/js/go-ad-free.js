@@ -60,10 +60,10 @@
 
 /* === CTA button === */
 .gaf-cta-pill{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:6px 14px;border-radius:4px;
+  display:inline-flex;align-items:center;gap:3px;
+  padding:3px 10px;border-radius:3px;
   background:${P};
-  color:#fff;font:700 11px/1 'Inter',sans-serif;
+  color:#fff;font:700 9px/1 'Inter',sans-serif;
   text-transform:uppercase;letter-spacing:0.5px;
   white-space:nowrap;
   transition:background .15s;
@@ -204,10 +204,21 @@
   }
 
   // ===== AD SCANNING =====
-  // Add a small "Go Ads-Free" badge above every .ad-banner element
+  // Add a small "Go Ads-Free" badge above each ad row and standalone ad banner
   function scanAds() {
+    // Strategy 1: One badge per .ad-row container
+    document.querySelectorAll(".ad-row").forEach(function (row) {
+      if (row.hasAttribute(MARKER)) return;
+      row.setAttribute(MARKER, "1");
+      row.querySelectorAll(".ad-banner").forEach(function (b) { b.setAttribute(MARKER, "1"); });
+      var badge = makeAdBadge();
+      row.parentNode.insertBefore(badge, row);
+    });
+
+    // Strategy 2: Standalone .ad-banner not inside .ad-row
     document.querySelectorAll(".ad-banner").forEach(function (banner) {
       if (banner.hasAttribute(MARKER)) return;
+      if (banner.closest(".ad-row")) return;
       banner.setAttribute(MARKER, "1");
 
       var badge = makeAdBadge();
