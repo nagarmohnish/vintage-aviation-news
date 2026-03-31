@@ -52,26 +52,10 @@
 @keyframes gafFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 @keyframes gafPopIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
-/* === BAR above ad-row (wide, full-width) === */
-.gaf-bar-wide{
-  display:flex;align-items:center;justify-content:space-between;
-  height:32px;padding:0 16px;
-  background:linear-gradient(135deg,#1a2332,#1e3a4f);
-  border-radius:6px 6px 0 0;cursor:pointer;
-  animation:gafFadeIn .35s ease-out;
-  box-sizing:border-box;max-width:1280px;margin:0 auto;
-}
-.gaf-bar-wide .gaf-bar-left{display:flex;align-items:center;gap:8px;overflow:hidden;}
-.gaf-bar-wide .gaf-sparkle{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,${P},${PD});flex-shrink:0;}
-.gaf-bar-wide .gaf-text{font:400 12.5px/1 'Inter',sans-serif;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
-/* === BAR above sidebar ad (narrow/compact) === */
-.gaf-bar-narrow{
-  display:flex;align-items:center;justify-content:center;
-  height:28px;padding:0 8px;
-  background:linear-gradient(135deg,#1a2332,#1e3a4f);
-  border-radius:6px 6px 0 0;cursor:pointer;
-  animation:gafFadeIn .35s ease-out;box-sizing:border-box;
+/* === Corner badge on each ad unit === */
+.gaf-corner-badge{
+  position:absolute;top:6px;right:6px;z-index:10;
+  cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
 /* === CTA pill (shared) === */
@@ -220,38 +204,26 @@
   }
 
   // ===== AD SCANNING =====
-  // VAN-specific: target .ad-row containers (which hold .ad-banner children)
-  // and standalone .ad-banner elements in the sidebar
+  // Add a small "Go Ads-Free" corner badge to every .ad-banner element
   function scanAds() {
-    // Strategy 1: Bars above .ad-row containers (the flex rows with 2 banners)
-    document.querySelectorAll(".ad-row").forEach(function (row) {
-      if (row.hasAttribute(MARKER)) return;
-      row.setAttribute(MARKER, "1");
-
-      var bar = makeWideBar();
-      row.parentNode.insertBefore(bar, row);
-    });
-
-    // Strategy 2: Bars above standalone .ad-banner NOT inside .ad-row (sidebar ads)
     document.querySelectorAll(".ad-banner").forEach(function (banner) {
       if (banner.hasAttribute(MARKER)) return;
-      if (banner.closest(".ad-row")) return; // skip — handled by row bar
       banner.setAttribute(MARKER, "1");
 
-      var rect = banner.getBoundingClientRect();
-      if (rect.width < 40 || rect.height < 20) return;
+      // Ensure the banner is positioned so the badge can be absolute-positioned
+      var style = window.getComputedStyle(banner);
+      if (style.position === "static") banner.style.position = "relative";
 
-      var isNarrow = rect.width < 250;
-      var bar = isNarrow ? makeNarrowBar() : makeWideBar();
-      banner.parentNode.insertBefore(bar, banner);
+      var badge = makeCornerBadge();
+      banner.appendChild(badge);
     });
 
-    // Strategy 3: Generic ad selectors for real ad networks
+    // Strategy for real ad networks
     var genericSelectors = [
       "ins.adsbygoogle", '[id^="google_ads"]', '[id^="div-gpt-ad"]', ".gpt-ad",
       "[data-google-query-id]", '[id^="amzn-assoc"]', '[id*="freestar"]',
       '[id^="mediavine"]', '[class*="mediavine"]', '[class*="adthrive"]',
-      '[class*="advertisement"]', '[class*="sponsored"]', "[data-ad]", "[data-ad-slot]",
+      "[data-ad]", "[data-ad-slot]",
     ];
     if (CFG.extraSelectors) {
       CFG.extraSelectors.split(",").forEach(function (s) {
@@ -262,38 +234,24 @@
       try {
         document.querySelectorAll(sel).forEach(function (ad) {
           if (ad.hasAttribute(MARKER)) return;
-          if (ad.closest(".ad-row") || ad.classList.contains("ad-banner")) return;
+          if (ad.classList.contains("ad-banner")) return;
           var rect = ad.getBoundingClientRect();
           if (rect.width < 40 || rect.height < 20) return;
           ad.setAttribute(MARKER, "1");
-          var bar = rect.width < 250 ? makeNarrowBar() : makeWideBar();
-          ad.parentNode.insertBefore(bar, ad);
+          var style = window.getComputedStyle(ad);
+          if (style.position === "static") ad.style.position = "relative";
+          ad.appendChild(makeCornerBadge());
         });
       } catch (e) {}
     });
   }
 
-  function makeWideBar() {
-    var copy = wideCopy[copyIdx % wideCopy.length];
-    copyIdx++;
-    var bar = document.createElement("div");
-    bar.className = "gaf-bar-wide";
-    bar.innerHTML =
-      '<div class="gaf-bar-left">' +
-        '<div class="gaf-sparkle"></div>' +
-        '<span class="gaf-text">' + copy + '</span>' +
-      '</div>' +
-      '<span class="gaf-cta-pill">Go Ads-Free <span class="gaf-arrow">\u2192</span></span>';
-    bar.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openPopup(); });
-    return bar;
-  }
-
-  function makeNarrowBar() {
-    var bar = document.createElement("div");
-    bar.className = "gaf-bar-narrow";
-    bar.innerHTML = '<span class="gaf-cta-pill">Go Ads-Free <span class="gaf-arrow">\u2192</span></span>';
-    bar.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openPopup(); });
-    return bar;
+  function makeCornerBadge() {
+    var badge = document.createElement("div");
+    badge.className = "gaf-corner-badge";
+    badge.innerHTML = '<span class="gaf-cta-pill">Go Ads-Free <span class="gaf-arrow">\u2192</span></span>';
+    badge.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openPopup(); });
+    return badge;
   }
 
   // ===== STICKY BOTTOM BANNER =====
