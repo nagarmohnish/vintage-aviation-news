@@ -52,23 +52,23 @@
 @keyframes gafFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 @keyframes gafPopIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
-/* === Badge above ad unit, left-aligned === */
+/* === Badge above ad unit, right-aligned === */
 .gaf-above-badge{
-  display:flex;align-items:center;margin-bottom:4px;
+  display:flex;justify-content:flex-end;margin-bottom:4px;
   cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
-/* === CTA pill (shared) === */
+/* === CTA button === */
 .gaf-cta-pill{
   display:inline-flex;align-items:center;gap:4px;
-  padding:4px 14px;border-radius:20px;
-  background:linear-gradient(135deg,${P},${PD});
-  color:#fff;font:600 11px/1 'Inter',sans-serif;
-  white-space:nowrap;box-shadow:0 2px 8px ${PT};
-  transition:transform .15s,box-shadow .15s;
+  padding:6px 14px;border-radius:4px;
+  background:${P};
+  color:#fff;font:700 11px/1 'Inter',sans-serif;
+  text-transform:uppercase;letter-spacing:0.5px;
+  white-space:nowrap;
+  transition:background .15s;
 }
-.gaf-cta-pill:hover{transform:scale(1.06);box-shadow:0 4px 14px ${PT};}
-.gaf-cta-pill:active{transform:scale(.96);}
+.gaf-cta-pill:hover{background:${PD};}
 .gaf-cta-pill .gaf-arrow{display:inline-block;transition:transform .15s;}
 .gaf-cta-pill:hover .gaf-arrow{transform:translateX(2px);}
 
