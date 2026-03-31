@@ -579,31 +579,6 @@ ul {
   justify-content: center;
 }
 
-/* ===== HEADER AD UNIT ===== */
-.header-ad-unit {
-  text-align: center;
-  padding: 15px 0;
-  margin-bottom: 5px;
-}
-
-.header-ad-unit .ad-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #999;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
-}
-
-.header-ad-unit .ad-banner-placeholder {
-  max-width: 728px;
-  margin: 0 auto;
-  background: #f0f0f0;
-  border: 1px dashed #ddd;
-  border-radius: 4px;
-  color: #999;
-  font-size: 13px;
-}
-
 /* ===== SIDEBAR AD ===== */
 .sidebar-ad {
   max-width: 100%;
