@@ -1255,6 +1255,44 @@ ul {
   background: var(--primary);
 }
 
+/* ===== FLOATING SUPPORT BUTTON ===== */
+.floating-support {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 997;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px 10px 16px;
+  background: linear-gradient(135deg, #1a3a5c, #2c5f8a);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.floating-support:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+.floating-support:active {
+  transform: scale(0.97);
+}
+
+.floating-support .jet-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .featured-grid {
