@@ -54,7 +54,7 @@
 
 /* === Badge above ad unit, right-aligned === */
 .gaf-above-badge{
-  display:flex;justify-content:flex-end;margin-bottom:4px;
+  display:flex;justify-content:flex-end;margin-bottom:2px;
   cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
@@ -206,13 +206,17 @@
   // ===== AD SCANNING =====
   // Add a small "Go Ads-Free" badge above each ad row and standalone ad banner
   function scanAds() {
-    // Strategy 1: One badge per .ad-row container
+    // Strategy 1: One badge per .ad-row container (inside same parent)
     document.querySelectorAll(".ad-row").forEach(function (row) {
       if (row.hasAttribute(MARKER)) return;
       row.setAttribute(MARKER, "1");
       row.querySelectorAll(".ad-banner").forEach(function (b) { b.setAttribute(MARKER, "1"); });
       var badge = makeAdBadge();
-      row.parentNode.insertBefore(badge, row);
+      // Insert as first child of ad-row so it sits above the banners
+      row.style.flexWrap = "wrap";
+      badge.style.width = "100%";
+      badge.style.padding = "0";
+      row.insertBefore(badge, row.firstChild);
     });
 
     // Strategy 2: Standalone .ad-banner not inside .ad-row
