@@ -52,9 +52,17 @@
 @keyframes gafFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 @keyframes gafPopIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
+/* === Wrapper for each ad banner === */
+.gaf-ad-wrapper{
+  flex:1;max-width:600px;display:flex;flex-direction:column;min-width:0;
+}
+.gaf-ad-wrapper .ad-banner{
+  flex:unset;max-width:unset;width:100%;
+}
+
 /* === Badge above ad unit, right-aligned === */
 .gaf-above-badge{
-  display:flex;justify-content:flex-end;margin-bottom:0;padding-bottom:1px;
+  display:flex;justify-content:flex-end;margin-bottom:1px;
   cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
@@ -204,54 +212,22 @@
   }
 
   // ===== AD SCANNING =====
-  // Add a small "Go Ads-Free" badge above each ad row and standalone ad banner
+  // Wrap every .ad-banner in a wrapper div with a badge above it
   function scanAds() {
-    // Strategy 1: One badge per .ad-row container (inside same parent)
-    document.querySelectorAll(".ad-row").forEach(function (row) {
-      if (row.hasAttribute(MARKER)) return;
-      row.setAttribute(MARKER, "1");
-      row.querySelectorAll(".ad-banner").forEach(function (b) { b.setAttribute(MARKER, "1"); });
-      var badge = makeAdBadge();
-      // Insert as first child of ad-row so it sits above the banners
-      row.style.flexWrap = "wrap";
-      badge.style.width = "100%";
-      badge.style.padding = "0";
-      row.insertBefore(badge, row.firstChild);
-    });
-
-    // Strategy 2: Standalone .ad-banner not inside .ad-row
     document.querySelectorAll(".ad-banner").forEach(function (banner) {
       if (banner.hasAttribute(MARKER)) return;
-      if (banner.closest(".ad-row")) return;
       banner.setAttribute(MARKER, "1");
 
-      var badge = makeAdBadge();
-      banner.parentNode.insertBefore(badge, banner);
-    });
-
-    // Strategy for real ad networks
-    var genericSelectors = [
-      "ins.adsbygoogle", '[id^="google_ads"]', '[id^="div-gpt-ad"]', ".gpt-ad",
-      "[data-google-query-id]", '[id^="amzn-assoc"]', '[id*="freestar"]',
-      '[id^="mediavine"]', '[class*="mediavine"]', '[class*="adthrive"]',
-      "[data-ad]", "[data-ad-slot]",
-    ];
-    if (CFG.extraSelectors) {
-      CFG.extraSelectors.split(",").forEach(function (s) {
-        s = s.trim(); if (s) genericSelectors.push(s);
-      });
-    }
-    genericSelectors.forEach(function (sel) {
-      try {
-        document.querySelectorAll(sel).forEach(function (ad) {
-          if (ad.hasAttribute(MARKER)) return;
-          if (ad.classList.contains("ad-banner")) return;
-          var rect = ad.getBoundingClientRect();
-          if (rect.width < 40 || rect.height < 20) return;
-          ad.setAttribute(MARKER, "1");
-          ad.parentNode.insertBefore(makeAdBadge(), ad);
-        });
-      } catch (e) {}
+      // Create wrapper: badge + banner together
+      var wrapper = document.createElement("div");
+      wrapper.className = "gaf-ad-wrapper";
+      // Full-width banners (e.g. style="max-width: 100%")
+      if (banner.style.maxWidth === "100%") {
+        wrapper.style.maxWidth = "100%";
+      }
+      banner.parentNode.insertBefore(wrapper, banner);
+      wrapper.appendChild(makeAdBadge());
+      wrapper.appendChild(banner);
     });
   }
 
