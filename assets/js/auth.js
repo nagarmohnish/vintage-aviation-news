@@ -154,17 +154,7 @@ function initAuthUI() {
   const user = getUser();
 
   if (!user) {
-    // Sign In button
-    const signInLi = document.createElement('li');
-    signInLi.className = 'nav-auth-item';
-    signInLi.innerHTML = '<a href="#" class="nav-auth-btn nav-signin" id="navSignIn">Sign In</a>';
-    navList.appendChild(signInLi);
-    signInLi.querySelector('#navSignIn').addEventListener('click', function(e) {
-      e.preventDefault();
-      openSSOPopup();
-    });
-
-    // Support button
+    // Support button only (no sign in)
     const supportLi = document.createElement('li');
     supportLi.className = 'nav-auth-item';
     supportLi.innerHTML = '<a href="#" class="nav-auth-btn nav-subscribe" id="navSupport">Support</a>';
@@ -226,17 +216,7 @@ function initAuthUI() {
   }
 }
 
-// ===== Auto-show SSO popup after 3.5 seconds (once per session) =====
-function maybeShowSSOPopup() {
-  if (isLoggedIn()) return;
-  if (sessionStorage.getItem(SSO_SHOWN_KEY)) return;
-  sessionStorage.setItem(SSO_SHOWN_KEY, '1');
-  setTimeout(function() {
-    if (!isLoggedIn() && !ssoBackdrop) {
-      openSSOPopup();
-    }
-  }, 3500);
-}
+// SSO popup removed — no auto-show
 
 // ===== Legacy helpers for login page =====
 function demoLogin(name, email) {
@@ -286,5 +266,4 @@ function getRedirectUrl() {
 // Auto-init on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
   initAuthUI();
-  maybeShowSSOPopup();
 });
