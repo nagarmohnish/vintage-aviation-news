@@ -52,9 +52,9 @@
 @keyframes gafFadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 @keyframes gafPopIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
 
-/* === Corner badge on each ad unit === */
-.gaf-corner-badge{
-  position:absolute;top:6px;right:6px;z-index:10;
+/* === Badge above ad unit, left-aligned === */
+.gaf-above-badge{
+  display:flex;align-items:center;margin-bottom:4px;
   cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
@@ -204,18 +204,14 @@
   }
 
   // ===== AD SCANNING =====
-  // Add a small "Go Ads-Free" corner badge to every .ad-banner element
+  // Add a small "Go Ads-Free" badge above every .ad-banner element
   function scanAds() {
     document.querySelectorAll(".ad-banner").forEach(function (banner) {
       if (banner.hasAttribute(MARKER)) return;
       banner.setAttribute(MARKER, "1");
 
-      // Ensure the banner is positioned so the badge can be absolute-positioned
-      var style = window.getComputedStyle(banner);
-      if (style.position === "static") banner.style.position = "relative";
-
-      var badge = makeCornerBadge();
-      banner.appendChild(badge);
+      var badge = makeAdBadge();
+      banner.parentNode.insertBefore(badge, banner);
     });
 
     // Strategy for real ad networks
@@ -238,19 +234,23 @@
           var rect = ad.getBoundingClientRect();
           if (rect.width < 40 || rect.height < 20) return;
           ad.setAttribute(MARKER, "1");
-          var style = window.getComputedStyle(ad);
-          if (style.position === "static") ad.style.position = "relative";
-          ad.appendChild(makeCornerBadge());
+          ad.parentNode.insertBefore(makeAdBadge(), ad);
         });
       } catch (e) {}
     });
   }
 
-  function makeCornerBadge() {
+  function getSupportUrl() {
+    var path = window.location.pathname;
+    if (path.includes('/pages/')) return '../support/';
+    return 'support/';
+  }
+
+  function makeAdBadge() {
     var badge = document.createElement("div");
-    badge.className = "gaf-corner-badge";
+    badge.className = "gaf-above-badge";
     badge.innerHTML = '<span class="gaf-cta-pill">Go Ads-Free <span class="gaf-arrow">\u2192</span></span>';
-    badge.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openPopup(); });
+    badge.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); window.location.href = getSupportUrl(); });
     return badge;
   }
 
@@ -378,7 +378,7 @@
     if (t.id === "gafClose" || (t.closest && t.closest("#gafClose"))) { closePopup(); return; }
 
     // Sticky banner CTA
-    if (t.id === "gafStickyCta" || (t.closest && t.closest("#gafStickyCta"))) { openPopup(); return; }
+    if (t.id === "gafStickyCta" || (t.closest && t.closest("#gafStickyCta"))) { window.location.href = getSupportUrl(); return; }
 
     // Sticky banner close
     if (t.id === "gafStickyClose" || (t.closest && t.closest("#gafStickyClose"))) {
