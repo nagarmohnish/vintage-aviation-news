@@ -254,17 +254,8 @@
     return badge;
   }
 
-  // ===== STICKY BOTTOM BANNER =====
-  function injectStickyBanner() {
-    var sticky = document.createElement("div");
-    sticky.className = "gaf-sticky";
-    sticky.id = "gafSticky";
-    sticky.innerHTML =
-      '<span class="gaf-sticky-text">Skip one coffee, go ads-free for a whole year. Just $20.</span>' +
-      '<button class="gaf-sticky-cta" id="gafStickyCta">Go Ads-Free</button>' +
-      '<button class="gaf-sticky-close" id="gafStickyClose">&times;</button>';
-    document.body.appendChild(sticky);
-  }
+  // Sticky bottom banner removed
+  function injectStickyBanner() {}
 
   // ===== POPUP =====
   var backdrop = null;
