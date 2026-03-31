@@ -132,11 +132,13 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeSSOPopup();
 });
 
-// ===== Support Button -> Opens Go Ads-Free Payment Widget =====
-function openSupportPopup() {
-  // Reuse the go-ad-free popup if available
-  if (typeof openPopup === 'function') {
-    openPopup();
+// ===== Support Button -> Navigate to Support Landing Page =====
+function openSupportPage() {
+  var base = window.location.pathname;
+  if (base.includes('/pages/')) {
+    window.location.href = '../support/';
+  } else {
+    window.location.href = 'support/';
   }
 }
 
@@ -169,7 +171,7 @@ function initAuthUI() {
     navList.appendChild(supportLi);
     supportLi.querySelector('#navSupport').addEventListener('click', function(e) {
       e.preventDefault();
-      openSupportPopup();
+      openSupportPage();
     });
   } else {
     // Logged in state
@@ -213,7 +215,7 @@ function initAuthUI() {
     userLi.querySelector('#navSupportLoggedIn').addEventListener('click', function(e) {
       e.preventDefault();
       dropdown.classList.remove('show');
-      openSupportPopup();
+      openSupportPage();
     });
 
     // Logout
