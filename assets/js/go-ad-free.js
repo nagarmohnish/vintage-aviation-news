@@ -54,7 +54,7 @@
 
 /* === Badge above ad unit, right-aligned === */
 .gaf-above-badge{
-  display:flex;justify-content:flex-end;margin-bottom:2px;
+  display:flex;justify-content:flex-end;margin-bottom:0;padding-bottom:1px;
   cursor:pointer;animation:gafFadeIn .35s ease-out;
 }
 
