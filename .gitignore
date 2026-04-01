@@ -1,25 +1,43 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Dependencies & build artifacts
+node_modules/
+dist/
+dist-ssr/
+support-dist/
 
-node_modules
-dist
-dist-ssr
-support-dist
+# Lock files (regenerated on install)
+bun.lock
+bun.lockb
+package-lock.json
+
+# Local settings
+.claude/
 *.local
 
-# Editor directories and files
+# IDE & OS
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Test artifacts
+playwright-report/
+test-results/
+coverage/
+
+# Generated reference file
+vintage-aviation-news-complete.html
+
+# Build script (generates the complete HTML)
+build-single.js

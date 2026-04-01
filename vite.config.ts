@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   base: "/vintage-aviation-news/support/",
   build: {
-    outDir: "support-dist",
+    outDir: "support",
     rollupOptions: {
       input: path.resolve(__dirname, "support.html"),
     },
